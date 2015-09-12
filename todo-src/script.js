@@ -20,6 +20,18 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
+  $scope.showEdits = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.edits = true;
+    $scope.editItem = function(keyEvent){
+      if(keyEvent.which === 13){
+        if($scope.editBox !== ""){
+          $scope.todos[index] = $scope.editBox;
+        }
+        $scope.edits = false;
+      }
+    }
+  }
   
 });
 
