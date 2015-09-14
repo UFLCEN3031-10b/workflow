@@ -19,12 +19,15 @@ myApp.controller('MainCtrl', function ($scope){
     var itemCopy = {};
     console.log("in add");
     console.log($scope.newItem);
-    if ($scope.newItem.text !== ""){
+    if ($scope.newItem.text !== "" && $scope.newItem.priority !== ""){
       itemCopy.priority = $scope.newItem.priority;    
       itemCopy.text = $scope.newItem.text;
       $scope.todos.push(itemCopy);
       $scope.newItem.text = "";
       $scope.newItem.priority = "";
+    }
+    else {
+      alert("Please enter a task/priority level!")
     }
   }
     

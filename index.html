@@ -17,18 +17,22 @@
   
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem.text">
-          <select ng-model="newItem.priority">
-            <option value="now">Now</option>
-            <option value="tomorrow">Tomorrow</option>
-            <option value="someday">Someday</option>
-          </select>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
+          
         </div><!-- /input-group -->
+        
+        <!-- Priority level -->
+        <span><strong>Priority Level:</strong></span>
+        <select ng-model="newItem.priority">
+            <option value="now">Now</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="someday">Someday</option>
+        </select>
         
       <h2>stuff i gotta do asap</h2>
       
@@ -37,7 +41,7 @@
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
           <span>{{do.text}}</span>
-          <span><strong>{{do.priority}}</strong></span>
+          <span class="label label-default">Priority: <strong>{{do.priority}}</strong></span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
