@@ -4,24 +4,31 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
 
-  $scope.todos = [{text:'Learn Angular', "priority":"now", done:false}, {text: 'Learn node', "priority":"now", done:false}];
+  $scope.todos = [{
+    "priority": "now",
+    text: 'Learn Angular',
+    done:false
+  }, {
+    "priority": "now",
+    text: 'Learn node',
+    done:false
+  }];
   $scope.newItem = {
     "priority": "",
-    "text": "",
+    text: '',
     done:false
   };
   
-  $scope.addItem = function(){
-    console.log("in add");
+  $scope.addItem = function(event){
     var itemCopy = {};
-    if ($scope.newItem !== ""){
-      $scope.todos.push({text: $scope.newItem, done: false});
+    console.log("in add");
+    console.log($scope.newItem);
+    if ($scope.newItem.text !== '' && $scope.newItem.priority !== ""){
       itemCopy.priority = $scope.newItem.priority;    
       itemCopy.text = $scope.newItem.text;
-      $scope.todos.push(itemCopy, don);
+      $scope.todos.push(itemCopy);
       $scope.newItem.text = "";
       $scope.newItem.priority = "";
-      $scope.newItem = "";
     }
     else {
       alert("Please enter a task/priority level!")
