@@ -1,4 +1,13 @@
 /* Styles go here */
 body {
-  background: green;
+    background: #93ffe2;
+}
+li input[type="checkbox"] {
+    width: 40px;
+}
+
+.done-true {
+    text-decoration: line-through;
+    /*We can make this the same color as the background once we decide on a background color*/
+    color: #000000;
 }

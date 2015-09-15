@@ -3,6 +3,25 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
+<<<<<<< HEAD
+	$scope.todos = [{text:'Learn Angular', done:false}, {text: 'Learn node', done:false}];
+	$scope.newItem = "";
+
+	$scope.addItem = function(){
+		console.log("in add");
+		if ($scope.newItem !== ""){
+			$scope.todos.push({text: $scope.newItem, done: false});
+			$scope.newItem = "";
+		}
+	}
+	$scope.deleteItem = function(item){
+		console.log("in delete");
+		var index = $scope.todos.indexOf(item);
+		$scope.todos.splice(index, 1);
+	}
+
+
+=======
   $scope.todos = ["Learn Angular", "Learn node"];
   $scope.newItem = "";
   
@@ -33,6 +52,7 @@ myApp.controller('MainCtrl', function ($scope){
     }
   }
   
+>>>>>>> master
 });
 
 /*************************
@@ -44,5 +64,7 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
- * *********************/
+ *
+ * *********************//**
+ * Created by Michelle on 9/14/2015.
+ */
