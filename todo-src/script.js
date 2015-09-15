@@ -27,7 +27,7 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.editItem = function(keyEvent){
       if(keyEvent.which === 13){
         if($scope.editBox !== ""){
-          $scope.todos[index] = $scope.editBox;
+          $scope.todos[index].name = $scope.editBox;
         }
         $scope.edits = false;
       }
