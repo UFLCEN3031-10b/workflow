@@ -59,7 +59,7 @@ myApp.controller('MainCtrl', function ($scope){
         var temp_array = $scope.todos.slice(0);
         for (var x in temp_array)
             if (temp_array[x].done)
-                $scope.deleteItem($scope.todos.indexOf(temp_array[x]));
+                $scope.deleteItem(temp_array[x]);
     };
 });
 
