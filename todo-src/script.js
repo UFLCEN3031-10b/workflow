@@ -18,13 +18,13 @@ myApp.controller('MainCtrl', function ($scope){
     text: '',
     done:false
   };
-  
+
   $scope.addItem = function(event){
     var itemCopy = {};
     console.log("in add");
     console.log($scope.newItem);
     if ($scope.newItem.text !== '' && $scope.newItem.priority !== ""){
-      itemCopy.priority = $scope.newItem.priority;    
+      itemCopy.priority = $scope.newItem.priority;
       itemCopy.text = $scope.newItem.text;
       $scope.todos.push(itemCopy);
       $scope.newItem.text = "";
@@ -34,13 +34,13 @@ myApp.controller('MainCtrl', function ($scope){
       alert("Please enter a task/priority level!")
     }
   }
-    
+
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
+
   $scope.showEdits = function(item){
     var index = $scope.todos.indexOf(item);
     $scope.edits = true;
@@ -55,17 +55,12 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
 	/* Clear all feature */
-
-	$scope.clearItems = function (){
-		console.log("Deleted everything");
-		for(var i = 0, len = $scope.todos.length; i < len; i++){
-        if($scope.todos[i].done == true){
-          $scope.todos.splice(i, 1);
-          console.log($scope.todos[i].done);
-        }
-    }
-    
-	}
+    $scope.clearItems = function() {
+        var temp_array = $scope.todos.slice(0);
+        for (var x in temp_array)
+            if (temp_array[x].done)
+                $scope.deleteItem($scope.todos.indexOf(temp_array[x]));
+    };
 });
 
 /*************************
