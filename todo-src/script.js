@@ -18,6 +18,9 @@ myApp.controller('MainCtrl', function ($scope){
     text: '',
     done:false
   };
+
+  $scope.editBox = "";
+  $scope.editPriority = "";
   
   $scope.addItem = function(event){
     var itemCopy = {};
@@ -31,7 +34,7 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.newItem.priority = "";
     }
     else {
-      alert("Please enter a task/priority level!")
+      alert("Please enter a task/priority level!");
     }
   }
     
@@ -46,10 +49,15 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.edits = true;
     $scope.editItem = function(keyEvent){
       if(keyEvent.which === 13){
-        if($scope.editBox !== ""){
+        if($scope.editBox !== "" && $scope.editPriority !== ""){
           $scope.todos[index].text = $scope.editBox;
+          $scope.todos[index].priority = $scope.editPriority;
+          $scope.edits = false;
         }
-        $scope.edits = false;
+        else{
+          alert("Please enter a task/priority level!");
+        }
+        
       }
     }
   }
