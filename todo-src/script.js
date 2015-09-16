@@ -18,9 +18,7 @@ myApp.controller('MainCtrl', function ($scope){
     text: '',
     done:false
   };
-
-  $scope.newItem.text = "";
-  $scope.newItem.priority = "";
+  
   $scope.editBox = "";
   $scope.editPriority = "";
   
