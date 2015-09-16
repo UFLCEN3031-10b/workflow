@@ -55,17 +55,16 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
 	/* Clear all feature */
-
 	$scope.clearItems = function (){
-		console.log("Deleted everything");
-		for(var i = 0, len = $scope.todos.length; i < len; i++){
-        if($scope.todos[i].done == true){
+          console.log("Deleted everything");
+	  for(var i = 0, len = $scope.todos.length; i < len; i++){
+        if($scope.todos[i].done === true){
           $scope.todos.splice(i, 1);
           console.log($scope.todos[i].done);
+          i = i-1;
         }
     }
-    
-	}
+   }
 });
 
 /*************************
