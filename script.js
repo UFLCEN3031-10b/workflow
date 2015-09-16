@@ -3,27 +3,23 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-
   $scope.todos = [{
     "priority": "now",
-    text: 'Learn Angular',
-    done:false
+    "text": "Learn Angular",
   }, {
     "priority": "now",
-    text: 'Learn node',
-    done:false
+    "text": "Learn node"
   }];
   $scope.newItem = {
     "priority": "",
-    text: '',
-    done:false
+    "text": ""
   };
   
   $scope.addItem = function(event){
     var itemCopy = {};
     console.log("in add");
     console.log($scope.newItem);
-    if ($scope.newItem.text !== '' && $scope.newItem.priority !== ""){
+    if ($scope.newItem.text !== "" && $scope.newItem.priority !== ""){
       itemCopy.priority = $scope.newItem.priority;    
       itemCopy.text = $scope.newItem.text;
       $scope.todos.push(itemCopy);
@@ -40,44 +36,23 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
-  $scope.showEdits = function(item){
-    var index = $scope.todos.indexOf(item);
-    $scope.edits = true;
-    $scope.editItem = function(keyEvent){
-      if(keyEvent.which === 13){
-        if($scope.editBox !== ""){
-          $scope.todos[index].text = $scope.editBox;
-        }
-        $scope.edits = false;
-      }
-    }
-  }
-
-	/* Clear all feature */
-
-	$scope.clearItems = function (){
-		console.log("Deleted everything");
-		for(var i = 0, len = $scope.todos.length; i < len; i++){
-        if($scope.todos[i].done == true){
-          $scope.todos.splice(i, 1);
-          console.log($scope.todos[i].done);
-        }
-    }
-    
-	}
+  
+  
 });
 
 /*************************
  * Homework (not rly):
  * - "enter" button functionality instead of clicking button
+ * 
+ *      html - new button with input that the JS can read from
+ *      edit function (in JS) happens when an edit button is clicked
+ *      selects the object from the array, updates its values, and replaces it in the array
+ *      
  * - edit button functionality
  * - button to mark item as "complete"
  * - have a total number of items at the top
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- *
- * *********************//**
- * Created by Michelle on 9/14/2015.
- */
+ * 
+ * *********************/
