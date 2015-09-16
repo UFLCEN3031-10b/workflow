@@ -18,7 +18,7 @@ myApp.controller('MainCtrl', function ($scope){
     text: '',
     done:false
   };
-  
+
   $scope.editBox = "";
   $scope.editPriority = "";
   
@@ -52,11 +52,12 @@ myApp.controller('MainCtrl', function ($scope){
         if($scope.editBox !== "" && $scope.editPriority !== ""){
           $scope.todos[index].text = $scope.editBox;
           $scope.todos[index].priority = $scope.editPriority;
+          $scope.edits = false;
         }
         else{
           alert("Please enter a task/priority level!");
         }
-        $scope.edits = false;
+        
       }
     }
   }
